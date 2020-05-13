@@ -6,7 +6,7 @@ import {
 } from "./starter_data";
 
 export function getUsers() {
-    return _getUsers();
+    return _getUsers().then(users=>({users}));
 }
 
 export function getQuestions() {

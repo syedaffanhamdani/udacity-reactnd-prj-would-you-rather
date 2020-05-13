@@ -1,6 +1,6 @@
 import { ADD_USERS, USER_ADD_QUESTION, USER_SAVE_ANSWER } from '../actions/users'
 
-export default function usersReducer(state = {}, action) {
+export default function users(state = {}, action) {
     switch (action.type) {
         case ADD_USERS:
             return {

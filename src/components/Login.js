@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import {setAuthenticatedUser} from '../actions/authenticatedUser'
 
 class Login extends Component {
 
@@ -7,7 +9,8 @@ class Login extends Component {
     }
 
     render() {
-        const {users} = this.props
+        const {user} = this.props
+        console.log(this.props)
     
         return (
             <div className="loginContainer">
@@ -15,9 +18,9 @@ class Login extends Component {
                 <div className="form-group">
                     <select className="form-control" id="userId">
                         <option>Select User to Login</option>
-                        {users && 
-                            Object.keys(users).map(
-                                user => <option key={user} value={user}>
+                        {user && 
+                            Object.keys(user).map(
+                                user1 => <option className="hbsc" key={user1} value={user1}>{user1}
 
                                 </option>
                             )
@@ -34,4 +37,20 @@ class Login extends Component {
 
 }
 
-export default Login;
+function mapStateToProps ({ user }) {
+    return {
+        user
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        setAuthenticatedUser: (id) => {
+            dispatch(setAuthenticatedUser(id))
+        }
+    }
+}
+
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Login);

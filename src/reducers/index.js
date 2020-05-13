@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux'
 import authenticatedUserReducer from './authenticatedUserReducer'
 import pollsReducer from './pollsReducer'
-import usersReducer from './usersReducer'
+import user from './users'
 import { loadingBarReducer } from 'react-redux-loading'
 
 export default combineReducers({
   authenticatedUserReducer,
-  usersReducer,
+  user,
   pollsReducer,
   loadingBar: loadingBarReducer,
 })
