@@ -1,0 +1,1 @@
+import {SET_AUTHENTICATED_USER} from '../actions/authenticatedUser'
