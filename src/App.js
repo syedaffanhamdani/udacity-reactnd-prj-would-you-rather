@@ -1,16 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Login from './components/Login';
+import { loadInitialUsers } from './actions/actionUtils'
+import {connect} from 'react-redux'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Login/>
+class App extends Component {
 
-      </header>
-    </div>
-  );
+  componentDidMount() {
+    const AUTHENTICATION_ID = null;
+    console.log(this.props)
+    this.props.dispatch((loadInitialUsers(AUTHENTICATION_ID)))
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <Login />
+
+        </header>
+      </div>
+    );
+  }
 }
 
-export default App;
+function mapStateToProps ({ authenticatedUser }) {
+  return {
+    authenticatedUser
+  }
+}
+
+export default connect(mapStateToProps)(App)

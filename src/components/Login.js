@@ -7,14 +7,21 @@ class Login extends Component {
     }
 
     render() {
+        const {users} = this.props
+    
         return (
             <div className="loginContainer">
             <form id="Login" onSubmit={this.handleSubmit}>
                 <div className="form-group">
                     <select className="form-control" id="userId">
-                        <option>User 1</option>
-                        <option>User 2</option>
-                        <option>User 3</option>
+                        <option>Select User to Login</option>
+                        {users && 
+                            Object.keys(users).map(
+                                user => <option key={user} value={user}>
+
+                                </option>
+                            )
+                        }
                     </select>
                 </div>
 
