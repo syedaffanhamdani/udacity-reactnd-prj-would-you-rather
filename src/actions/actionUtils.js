@@ -20,6 +20,8 @@ export function loadInitialUsers (AUTHENTICATIN_ID){
     return (dispatch) => {
         dispatch(showLoading())
         return getUsers().then((users)=>{
+            console.log("dispatch result")
+            console.log(users)
             dispatch(addUsers(users))
             dispatch(setAuthenticatedUser(AUTHENTICATIN_ID))
             dispatch(hideLoading())

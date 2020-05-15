@@ -9,7 +9,7 @@ class Login extends Component {
     }
 
     render() {
-        const {user} = this.props
+        const {users} = this.props
         console.log(this.props)
     
         return (
@@ -18,8 +18,8 @@ class Login extends Component {
                 <div className="form-group">
                     <select className="form-control" id="userId">
                         <option>Select User to Login</option>
-                        {user && 
-                            Object.keys(user).map(
+                        {users && 
+                            Object.keys(users).map(
                                 user1 => <option className="hbsc" key={user1} value={user1}>{user1}
 
                                 </option>
@@ -37,9 +37,9 @@ class Login extends Component {
 
 }
 
-function mapStateToProps ({ user }) {
+function mapStateToProps ({ users }) {
     return {
-        user
+        users
     }
 }
 
