@@ -1,4 +1,4 @@
-import { RECEIVE_INTIAL_QUESTIONS, ADD_POLL_QUESTION, SAVE_POLL_ANSWER } from '../actions/pollingactions'
+import { RECEIVE_INTIAL_QUESTIONS, ADD_POLL_QUESTION, SAVE_POLL_ANSWER } from '../actions/polls'
 
 export default function questions(state = {}, action) {
     switch (action.type) {

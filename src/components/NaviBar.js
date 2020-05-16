@@ -4,6 +4,7 @@ import  Nav from 'react-bootstrap/Nav'
 import Profile from './Profile'
 export default function NaviBar() {
     return (
+    
         <Navbar>
             <Navbar.Brand href="/">Home</Navbar.Brand>
             <Navbar.Toggle />
