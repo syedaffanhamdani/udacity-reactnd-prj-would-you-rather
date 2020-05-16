@@ -35,8 +35,9 @@ class App extends Component {
   }
 }
 
-function mapStateToProps ({ authenticatedUser }) {
+function mapStateToProps ({ state,authenticatedUser }) {
   return {
+    state,
     authenticatedUser
   }
 }

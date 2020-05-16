@@ -1,11 +1,13 @@
-import { RECEIVE_INTIAL_QUESTIONS, ADD_POLL_QUESTION, SAVE_POLL_ANSWER } from '../actions/polls'
+import { RECEIVE_INTIAL_QUESTIONS, ADD_POLL_QUESTION, SAVE_POLL_ANSWER } from '../actions/questions'
 
 export default function questions(state = {}, action) {
     switch (action.type) {
         case RECEIVE_INTIAL_QUESTIONS:
+            console.log("received action in reducer")
+            console.log(JSON.stringify(action))
             return {
                 ...state,
-                ...action.questions
+                 ...action.questions
             }
         case SAVE_POLL_ANSWER:
             const { authenticatedUser, questionId, answer } = action

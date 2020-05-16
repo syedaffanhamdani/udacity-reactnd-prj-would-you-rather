@@ -1,5 +1,5 @@
 import {addUsers,userSaveAnswer,userAddQuestion} from './users';
-import {addPollQuestion,receiveInitialQuestions, savePollAnswer} from './pollingactions'
+import {addPollQuestion,receiveInitialQuestions, savePollAnswer} from './questions'
 import {showLoading,hideLoading} from 'react-redux-loading';
 import {getQuestions, getUsers, saveQuestionAnswer, saveQuestion} from '../utils/MockAPI'
 import {setAuthenticatedUser} from './authenticatedUser'
@@ -12,7 +12,7 @@ export function loadInitialPollData(){
                 dispatch(receiveInitialQuestions(questions))
                 dispatch(hideLoading())
             }
-        ) // perhaps a catch here?
+        ).catch(console.log('error getting questions')) // perhaps a catch here?
     }
 }
 

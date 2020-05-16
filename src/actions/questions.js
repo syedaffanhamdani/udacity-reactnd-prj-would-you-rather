@@ -8,7 +8,7 @@ export const ADD_POLL_QUESTION = 'ADD_POLL_QUESTION'
 export function receiveInitialQuestions(questions) {
     return {
         type: RECEIVE_INTIAL_QUESTIONS,
-        ...questions
+        questions: {...questions}
     }
 
 }
