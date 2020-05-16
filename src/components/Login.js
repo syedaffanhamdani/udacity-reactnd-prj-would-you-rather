@@ -8,15 +8,29 @@ class Login extends Component {
         selectedUser : '',
     }
 
+    onUserSelected = (selectedUser) => this.setState({selectedUser})
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+        const {selectedUser} = this.state
+        const {setAuthenticatedUser} = this.props
+        if(selectedUser){
+            setAuthenticatedUser(selectedUser)
+        }
+        else {
+            alert('Please select a user to login')
+        }
+    }
+
     render() {
         const {users} = this.props
-        console.log(this.props)
+        const {selectedUser} = this.state
     
         return (
             <div className="loginContainer">
             <form id="Login" onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                    <select className="form-control" id="userId">
+                    <select className="form-control" id="userId" onChange={(e)=>this.onUserSelected(e.target.value)}>
                         <option>Select User to Login</option>
                         {users && 
                             Object.keys(users).map(
