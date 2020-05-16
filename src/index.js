@@ -7,6 +7,8 @@ import {Provider} from 'react-redux';
 import reducer from './reducers';
 import middleware from './middleware';
 import * as serviceWorker from './serviceWorker';
+// Importing the Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const store = createStore(reducer, middleware);
