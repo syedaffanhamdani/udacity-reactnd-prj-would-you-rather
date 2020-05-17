@@ -12,6 +12,25 @@ code {
     monospace;
 }
 
-floatRight {
-float:right
+
+.profile-picture {
+  width: 35px !important;
+  height: 35px !important;
+}
+
+.nav {
+  display: flex;
+  padding-left: 10px;
+}
+
+.nav-li {
+  padding: 10px;
+  user-select: none;
+  cursor: pointer;
+  color: #808080;
+  line-height: 1.5;
+}
+
+.nav-li:hover {
+  color: #CCCCCB;
 }

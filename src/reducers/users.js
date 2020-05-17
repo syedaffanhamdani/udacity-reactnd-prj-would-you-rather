@@ -3,8 +3,6 @@ import { ADD_USERS, USER_ADD_QUESTION, USER_SAVE_ANSWER } from '../actions/users
 export default function users(state = {}, action) {
     switch (action.type) {
         case ADD_USERS:
-            console.log('users reducer')
-            console.log(action.users)
             return {
                 ...state,
                 ...action.users

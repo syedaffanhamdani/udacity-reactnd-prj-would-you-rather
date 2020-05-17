@@ -2,7 +2,6 @@ import {addUsers,userSaveAnswer,userAddQuestion} from './users';
 import {addPollQuestion,receiveInitialQuestions, savePollAnswer} from './questions'
 import {showLoading,hideLoading} from 'react-redux-loading';
 import {getQuestions, getUsers, saveQuestionAnswer, saveQuestion} from '../utils/MockAPI'
-import {setAuthenticatedUser} from './authenticatedUser'
 
 export function loadInitialPollData(){
     return(dispatch) => {
@@ -16,14 +15,13 @@ export function loadInitialPollData(){
     }
 }
 
-export function loadInitialUsers (AUTHENTICATIN_ID){
+export function loadInitialUsers (){
     return (dispatch) => {
         dispatch(showLoading())
         return getUsers().then((users)=>{
             console.log("dispatch result")
             console.log(users)
             dispatch(addUsers(users))
-            dispatch(setAuthenticatedUser(AUTHENTICATIN_ID))
             dispatch(hideLoading())
         })
     }

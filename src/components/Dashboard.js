@@ -83,4 +83,4 @@ function mapStateToProps ({ questions, authenticatedUser, users, loadingBar }) {
     }
 }
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps)(Dashboard)

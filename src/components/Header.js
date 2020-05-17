@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import NaviBar from './NaviBar'
-
-class Header extends Component{
+import {connect} from 'react-redux'
+class Header extends Component {
     render() {
         return(
             <div className='header-bar'>
@@ -12,4 +12,4 @@ class Header extends Component{
 
 
 }
-export default Header;
+export default connect()(Header);

@@ -11,7 +11,6 @@ class App extends Component {
 
   componentDidMount() {
     const AUTHENTICATION_ID = null;
-    console.log(this.props)
     this.props.dispatch((loadInitialUsers(AUTHENTICATION_ID)))
   };
 
@@ -37,10 +36,10 @@ class App extends Component {
   }
 }
 
-function mapStateToProps ({ state,authenticatedUser }) {
+function mapStateToProps ({ authenticatedUser }) {
+  console.log(`authenticated user in app.js${authenticatedUser}`)
   return {
-    state,
-    authenticatedUser
+    authenticatedUser  
   }
 }
 
