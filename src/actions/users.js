@@ -11,10 +11,10 @@ export function addUsers(users) {
     }
 }
 
-export function userSaveAnswer(authenicatedUser, questionId, answer) {
+export function userSaveAnswer(authenticatedUser, questionId, answer) {
     return {
         type: USER_SAVE_ANSWER,
-        authenicatedUser,
+        authenticatedUser,
         questionId,
         answer
     }

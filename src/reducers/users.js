@@ -18,12 +18,17 @@ export default function users(state = {}, action) {
                 }
             }
         case USER_SAVE_ANSWER:
-            const {authenticatedUser,questionId, answer}= action    
+            const {authenticatedUser,questionId, answer}= action  
+            console.log(JSON.stringify(action))  
+            console.log(JSON.stringify(authenticatedUser)) 
         return {
             ...state,
             [authenticatedUser]:{
-                ...state[authenticatedUser].answers,
-                [questionId]: answer
+                ...state[authenticatedUser],
+                answers: {
+                    ...state[authenticatedUser].answers,
+                    [questionId]: answer
+                }
             }
         }    
         default:

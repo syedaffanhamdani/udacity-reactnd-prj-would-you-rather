@@ -150,7 +150,7 @@ let users = {
   
   export function _saveQuestion (question) {
     return new Promise((res, rej) => {
-      const authedUser = question.author;
+      const authenticatedUser = question.author;
       const formattedQuestion = formatQuestion(question);
   
       setTimeout(() => {
@@ -161,9 +161,9 @@ let users = {
         
         users = {
           ...users,
-          [authedUser]: {
-            ...users[authedUser],
-            questions: users[authedUser].questions.concat([formattedQuestion.id])
+          [authenticatedUser]: {
+            ...users[authenticatedUser],
+            questions: users[authenticatedUser].questions.concat([formattedQuestion.id])
           }
         }
   
@@ -174,30 +174,30 @@ let users = {
 
 
   
-  export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
+  export function _saveQuestionAnswer ({ authenticatedUser, qid, answer }) {
     return new Promise((res, rej) => {
       setTimeout(() => {
         users = {
           ...users,
-          [authedUser]: {
-            ...users[authedUser],
+          [authenticatedUser]: {
+            ...users[authenticatedUser],
             answers: {
-              ...users[authedUser].answers,
+              ...users[authenticatedUser].answers,
               [qid]: answer
             }
           }
         }
   
-        questions = {
-          ...questions,
-          [qid]: {
-            ...questions[qid],
-            [answer]: {
-              ...questions[qid][answer],
-              votes: questions[qid][answer].votes.concat([authedUser])
-            }
-          }
-        }
+    //    questions = {
+    //      ...questions,
+    //      [qid]: {
+    //        ...questions[qid],
+    //        [answer]: {
+    //          ...questions[qid][answer],
+    //          votes: questions[qid][answer].votes.concat([authenticatedUser])
+    //        }
+    //      }
+    //    }
   
         res()
       }, 500)

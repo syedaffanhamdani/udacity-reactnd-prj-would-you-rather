@@ -35,9 +35,9 @@ export function handleSaveAnswer(questionId, answer){
         dispatch(showLoading())
         return saveQuestionAnswer({authenticatedUser,questionId,answer})
         .then(()=>{
-            dispatch(saveQuestionAnswer(authenticatedUser,questionId,answer))
-            dispatch(userSaveAnswer())
-            dispatch(savePollAnswer())
+            dispatch(savePollAnswer(authenticatedUser,questionId,answer))
+            dispatch(userSaveAnswer(authenticatedUser,questionId,answer))
+            dispatch(hideLoading())
         })
     }
 }
