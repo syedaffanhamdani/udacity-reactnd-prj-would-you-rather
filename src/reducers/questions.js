@@ -15,7 +15,7 @@ export default function questions(state = {}, action) {
                 ...state,
                 [questionId]: {
                     ...state[questionId],
-                    answer: {
+                    [answer]: {
                         ...state[questionId][answer],
                         votes: state[questionId][answer].votes.concat([authenticatedUser])
                     }

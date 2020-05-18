@@ -6,7 +6,8 @@ import {connect} from 'react-redux'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Dashboard from './components/Dashboard'
 import WouldYouRatherDetailsCard from './components/WouldYouRatherDetailsCard';
-
+import Leaderboard from './components/Leaderboard'
+import MissingPage from './components/MissingPage'
 class App extends Component {
 
   componentDidMount() {
@@ -25,9 +26,11 @@ class App extends Component {
               <Route path='/' exact component={Login} />:
               <Fragment>
                 <Route path='/' exact component={Dashboard}></Route>
+                <Route path='/leaderboard' exact component={Leaderboard}/>
                 <Route path='/questions/:question_id' component={WouldYouRatherDetailsCard} />
               </Fragment>
             }
+            <Route component={MissingPage} />
           </Switch>
 
         </Fragment>

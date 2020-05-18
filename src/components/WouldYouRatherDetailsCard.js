@@ -97,7 +97,7 @@ class WouldYouRatherDetailsCard extends Component {
                                     <img 
                                         src={authorAvatar}
                                         alt={`Avatar of ${author}`}
-                                        className='scale-down-mid profile-pic vertical-align'/>
+                                        className='profile-picture'/>
                                     <span className="padding-left">{author}</span>
                                 </li>
                                 <li className='time-stamp user-info-li block'>
@@ -113,7 +113,11 @@ class WouldYouRatherDetailsCard extends Component {
 
 function mapStateToProps ({authenticatedUser, questions, users}, props) {
     const { question_id } = props.match.params
+    console.log(`question_id : ${question_id}`)
     const question = questions[question_id]
+    console.log(`question : ${JSON.stringify(question)}`)
+    console.log(`authenticatedUser : ${authenticatedUser}`)
+  
     const authorAvatar = users[question.author].avatarURL
     const author = users[question.author].id
     const timestamp = formatDate (question.timestamp)
