@@ -1,5 +1,4 @@
 import React from 'react'
-import Profile from './Profile'
 import { NavLink } from 'react-router-dom'
 export default function NaviBar() {
     
@@ -21,10 +20,7 @@ export default function NaviBar() {
                     Add Poll
                     </NavLink>
                 </li>
-                <li>
-                <Profile />
-                </li>
-            </ul>
+                </ul>
 
         </nav>
 

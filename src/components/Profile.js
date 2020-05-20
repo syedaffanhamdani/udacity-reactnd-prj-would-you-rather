@@ -15,21 +15,14 @@ class Profile extends Component {
     render() {
         const { authenticatedUser, profileImage } = this.props
         return (
-
-
-                    <NavDropdown title="Profile" id="basic-nav-dropdown" className="mr-sm-2">
-                        <NavDropdown.Item>
-                            <img src={profileImage}
-                                alt={`profile pic of ${authenticatedUser}`}>
-                            </img> <br />
+            <div className="move-right">
+                <img src={profileImage} className="profile-picture"
+                    alt={`profile pic of ${authenticatedUser}`}>
+                </img>
                     Signed in as: {authenticatedUser}
-                        </NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item>
-                            <Button variant="primary" onClick={this.handleLogout}  >Logout</Button>
-                        </NavDropdown.Item>
-                    </NavDropdown>
+                <Button variant="primary" onClick={this.handleLogout}  >Logout</Button>
 
+            </div>
         )
     }
 

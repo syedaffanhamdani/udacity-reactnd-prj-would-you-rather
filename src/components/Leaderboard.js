@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import Header from './Header'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 class Leaderboard extends Component {
 
     render() {
@@ -13,6 +13,7 @@ class Leaderboard extends Component {
                         <tr>
                             <th>Rank</th>
                             <th>User</th>
+                            <th>User Name</th>
                             <th>Questions created</th>
                             <th>Questions answered</th>
                         </tr>
@@ -26,13 +27,14 @@ class Leaderboard extends Component {
                                         <ul>
                                             <li>
                                                 <img src={users[user.userId].avatarURL}
-                                                alt="user avatar"
-                                                className="profile-picture"/>
+                                                    alt="user avatar"
+                                                    className="profile-picture" />
                                             </li>
                                         </ul>
                                     </td>
-                            <td>{user.pollsCreated}</td>
-                            <td>{user.pollsAnswered}</td>
+                                    <td>{user.userId}</td>
+                                    <td>{user.pollsCreated}</td>
+                                    <td>{user.pollsAnswered}</td>
                                 </tr>
                             ))
                         }
