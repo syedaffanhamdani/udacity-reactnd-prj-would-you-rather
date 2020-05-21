@@ -4,7 +4,7 @@ export default function NaviBar() {
     
     return (
         <nav>
-            <ul className='navigation-bar'>
+            <ul className='navigation-bar no-bullets'>
                 <li className='navbar-item'>
                     <NavLink className='navbar-item' to='/' exact activeClassName='active'>
                         Home

@@ -8,6 +8,7 @@ import Dashboard from './components/Dashboard'
 import WouldYouRatherDetailsCard from './components/WouldYouRatherDetailsCard';
 import Leaderboard from './components/Leaderboard'
 import AddQuestion from './components/AddQuestion';
+import FourZeroFour from './components/FourZeroFour';
 class App extends Component {
 
   componentDidMount() {
@@ -25,13 +26,13 @@ class App extends Component {
               this.props.authenticatedUser === null ? 
               <Route path='/' exact component={Login} />:
               <Fragment>
-                <Route path='/' exact component={Dashboard}></Route>
+                <Route path='/dashboard' exact component={Dashboard}></Route>
                 <Route path='/add' exact component={AddQuestion}/>
                 <Route path='/leaderboard' exact component={Leaderboard}/>
                 <Route path='/questions/:question_id' component={WouldYouRatherDetailsCard} />
               </Fragment>
             }
-            <Route path='/' exact component={Login} />
+            <Route component={FourZeroFour} />
           </Switch>
 
         </Fragment>

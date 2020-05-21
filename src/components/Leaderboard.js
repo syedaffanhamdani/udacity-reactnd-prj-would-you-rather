@@ -24,7 +24,7 @@ class Leaderboard extends Component {
                                 <tr key={user.userId}>
                                     <td>{index + 1}</td>
                                     <td>
-                                        <ul>
+                                        <ul className="no-bullets">
                                             <li>
                                                 <img src={users[user.userId].avatarURL}
                                                     alt="user avatar"

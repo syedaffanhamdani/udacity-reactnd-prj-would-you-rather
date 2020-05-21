@@ -3,7 +3,7 @@ let users = {
     sarahedo: {
       id: 'sarahedo',
       name: 'Edo',
-      avatarURL: 'https://nommolep.sirv.com/Images/VW%20Beetle.jpg',
+      avatarURL: 'https://nommolep.sirv.com/Images/sara.png',
       answers: {
         "8xf0y6ziyjabvozdd253nd": 'optionOne',
         "6ni6ok3ym7mf1p33lnez": 'optionTwo',

@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { setAuthenticatedUser } from '../actions/authenticatedUser'
-import Jumbotron from 'react-bootstrap/Jumbotron'
-import Container from 'react-bootstrap/Container'
+import { Redirect } from 'react-router-dom'
 class Login extends Component {
+    
+    constructor() {
+        super();
+    
+        // Define the initial state:
+        this.state = {
+            selectedUser: '',
+        }
+      }
 
-    state = {
-        selectedUser: '',
-    }
-
-    onUserSelected = (selectedUser) => this.setState({ selectedUser })
-
-    handleSubmit = (e) => {
-        e.preventDefault()
+     handleSubmit = () => {
         const { selectedUser } = this.state
         const { setAuthenticatedUser } = this.props
+        console.log(JSON.stringify(this.state))
         if (selectedUser) {
             setAuthenticatedUser(selectedUser)
         }
@@ -23,34 +25,39 @@ class Login extends Component {
         }
     }
 
+    onUserSelected = (user) => {
+        console.log(`setting state for user${user}`)
+        this.setState({ selectedUser : user }, this.handleSubmit)
+        }
+ 
+
+ 
+
     render() {
         const { users } = this.props
-       // const { selectedUser } = this.state
+        const { selectedUser } = this.state
 
         return (
-            <div className="loginContainer">
-                <Container className="p-3">
-                    <Jumbotron>
-                        <h2 className="header">Select a user to login</h2>
+            <div className="login-container">
+                {selectedUser !== '' ? <Redirect to='/dashboard' /> : 
+                <div className="p-3">
+                    <h2 className="header">Select a user to login</h2>
 
-                        <form id="Login" onSubmit={this.handleSubmit}>
-                    <div className="form-group">
-                        <select className="form-control" id="userId" onChange={(e) => this.onUserSelected(e.target.value)}>
-                            <option>Select User to Login</option>
-                            {users &&
-                                Object.keys(users).map(
-                                    user1 => <option className="hbsc" key={user1} value={user1}>{user1}
+                    <form id="Login">
+                        <div className="form-group">
+                            <select className="form-control" id="userId" onChange={(e) => this.onUserSelected(e.target.value)}>
+                                <option>Select User to Login</option>
+                                {users &&
+                                    Object.keys(users).map(
+                                        user => <option className="hbsc" key={user} value={user}>{user}
 
-                                    </option>
-                                )
-                            }
-                        </select>
-                    </div>
-
-                    <button type="submit" className="btn btn-primary" disabled={this.state.userSelected === ''}>Login</button>
-                </form>
-                    </Jumbotron>
-                </Container>
+                                        </option>
+                                    )
+                                }
+                            </select>
+                        </div>
+                    </form>
+                </div>}
 
             </div>
         );
