@@ -41,9 +41,11 @@ class AddQuestion extends Component {
       }
 
     render(){
-        this.renderRedirect()
+        
         return(
-            <Fragment>
+            <div>
+             {this.renderRedirect()}
+             <Fragment>
                 <Header/>
                 <div className="question-wrapper">
                     <div className="question-header">
@@ -58,6 +60,9 @@ class AddQuestion extends Component {
                     }
                 </div>
             </Fragment>
+
+
+            </div>
         )
     }
 }
