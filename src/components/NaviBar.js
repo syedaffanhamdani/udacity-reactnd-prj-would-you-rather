@@ -6,7 +6,7 @@ export default function NaviBar() {
         <nav>
             <ul className='navigation-bar no-bullets'>
                 <li className='navbar-item'>
-                    <NavLink className='navbar-item' to='/' exact activeClassName='active'>
+                    <NavLink className='navbar-item' to='/dashboard' exact activeClassName='active'>
                         Home
                     </NavLink>
                 </li>
