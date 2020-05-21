@@ -22,9 +22,10 @@ export default function questions(state = {}, action) {
                 }
             }
             case ADD_POLL_QUESTION:
+                console.log(`ADD_POLL_QUESTION_REDCER action is: ${JSON.stringify(action)}`)
                 return {
                     ...state,
-                    [action.poll.id]: action.poll
+                    [action.pollQuestion.id]: action.pollQuestion
                 }
         default:
             return state

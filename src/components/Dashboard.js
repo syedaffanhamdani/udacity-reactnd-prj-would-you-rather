@@ -44,9 +44,7 @@ class Dashboard extends Component{
                     : null
                 }
                 { 
-                    loadingBar.default
-                    ? <p className='loading'>Loading ...</p>
-                    : this.state.selectedTab === 'unanswered' && Object.keys(unansweredQuestions).length !== 0
+                    this.state.selectedTab === 'unanswered' && Object.keys(unansweredQuestions).length !== 0
                         ? <div className='question-form margin'>
                             {unansweredQuestions.map((id) => (
                             <WouldYouRatherCard key={id} id={id}/> ))}

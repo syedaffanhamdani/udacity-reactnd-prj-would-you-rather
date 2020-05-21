@@ -13,10 +13,10 @@ export function receiveInitialQuestions(questions) {
 
 }
 
-export function addPollQuestion (pollQuestions){
+export function addPollQuestion (pollQuestion){
 return {
     type: ADD_POLL_QUESTION,
-    pollQuestions,
+    pollQuestion,
 }
 }
 

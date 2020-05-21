@@ -20,10 +20,10 @@ export function userSaveAnswer(authenticatedUser, questionId, answer) {
     }
 }
 
-export function userAddQuestion(authenicatedUser, questionId) {
+export function userAddQuestion(authenticatedUser, questionId) {
     return {
         type: USER_ADD_QUESTION,
-        authenicatedUser,
+        authenticatedUser,
         questionId
     }
 

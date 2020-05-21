@@ -42,12 +42,13 @@ export function handleSaveAnswer(questionId, answer){
 
 export function handleAddQuestion(optionOne, optionTwo){
     return(dispatch, getState) =>{
-        const authenticatedUser = getState()
+        const {authenticatedUser} = getState()
+        const author = authenticatedUser
         dispatch(showLoading())
-        return saveQuestion({optionOne, optionTwo,authenticatedUser})
-        .then((questionInfo)=>{
-            dispatch(addPollQuestion(questionInfo))
-            dispatch(userAddQuestion(authenticatedUser,questionInfo.id))
+        return saveQuestion({optionOne, optionTwo,author})
+        .then((question)=>{
+            dispatch(addPollQuestion(question))
+            dispatch(userAddQuestion(authenticatedUser,question.id))
         })
     }
 

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { setAuthenticatedUser } from '../actions/authenticatedUser'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import NavDropdown from 'react-bootstrap/NavDropdown'
 
 import Button from 'react-bootstrap/Button'
 class Profile extends Component {

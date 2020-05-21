@@ -132,18 +132,18 @@ let users = {
     })
   }
   
-  function formatQuestion ({ optionOneText, optionTwoText, author }) {
+  function formatQuestion ({ optionOne, optionTwo, author }) {
     return {
       id: generateUID(),
       timestamp: Date.now(),
       author,
       optionOne: {
         votes: [],
-        text: optionOneText,
+        text: optionOne,
       },
       optionTwo: {
         votes: [],
-        text: optionTwoText,
+        text: optionTwo,
       }
     }
   }
@@ -151,14 +151,17 @@ let users = {
   export function _saveQuestion (question) {
     return new Promise((res, rej) => {
       const authenticatedUser = question.author;
+      console.log(`question: ${JSON.stringify(question)}`)
+
       const formattedQuestion = formatQuestion(question);
+      console.log(`formatted question: ${JSON.stringify(formattedQuestion)}`)
   
       setTimeout(() => {
         questions = {
           ...questions,
-          [formattedQuestion.id]: formattedQuestion
+          [formattedQuestion.id]: formattedQuestion,
         }
-        
+        console.log(`questions: ${JSON.stringify(questions)}`)
         users = {
           ...users,
           [authenticatedUser]: {
@@ -166,7 +169,6 @@ let users = {
             questions: users[authenticatedUser].questions.concat([formattedQuestion.id])
           }
         }
-  
         res(formattedQuestion)
       }, 1000)
     })
